@@ -20,8 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         movementVector = Vector3.zero;
-        movementVector.x = Input.GetAxisRaw("Horizontal");
-        movementVector.z = Input.GetAxisRaw("Vertical");
+        movementVector.z = Input.GetAxisRaw("Horizontal") * -1;
+        movementVector.x = Input.GetAxisRaw("Vertical");
         MoveCharacter();
     }
 
