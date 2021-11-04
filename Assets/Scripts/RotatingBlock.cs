@@ -5,19 +5,14 @@ using UnityEngine;
 public class RotatingBlock : MonoBehaviour
 {
     [SerializeField]private Transform axelTrans;
-    private bool rotated = false;
-    
-    public void RotateBlock()
+    public float rotationSpeed;
+    public bool rotate = false;
+
+    public void Update()
     {
-        //turn 90 degrees
-        if (rotated)
+        if (rotate)
         {
-            axelTrans.rotation = Quaternion.Euler(0f, 0f, 0f);
+            axelTrans.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
         }
-        else
-        {
-            axelTrans.rotation = Quaternion.Euler(0f,90f, 0f); 
-        }
-        rotated = !rotated;
     }
 }

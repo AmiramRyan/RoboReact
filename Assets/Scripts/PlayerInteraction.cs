@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    public RotatingBlock thisRotate;
+    public RotatingBlock[] purpleBlocks;
     private void Update()
     {
         if (Input.GetKeyDown("1"))
         {
-            thisRotate.RotateBlock();
+            for(int i = 0; i < purpleBlocks.Length; i++)
+            {
+                purpleBlocks[i].rotate = !purpleBlocks[i].rotate;
+            }
         }
     }
 }
