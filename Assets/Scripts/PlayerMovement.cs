@@ -16,8 +16,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    private void FixedUpdate()
+    private void Update()
     {
         movementVector = Vector3.zero;
         movementVector.z = Input.GetAxisRaw("Horizontal") * -1;
@@ -27,6 +26,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void MoveCharacter()
     {
-        myRb.MovePosition(transform.position + movementVector * speed * Time.deltaTime);
+        myRb.velocity = movementVector * speed; //when using velocity there is no need for time modifier
     }
 }
