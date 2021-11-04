@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RotatingBlock : MonoBehaviour
 {
+    //generic rotation script
     [SerializeField]private Transform axelTrans;
     public float rotationSpeed;
     public bool rotate = false;

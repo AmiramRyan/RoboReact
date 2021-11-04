@@ -7,6 +7,7 @@ public class PlayerInteraction : MonoBehaviour
     public RotatingBlock[] purpleBlocks;
     public RotatingBlock[] yellowBlocks;
     public RotatingBlock[] greenBlocks;
+    [SerializeField] GameObject goal;
     private bool rotatePurpleActive = false;
     private bool rotateYellowActive = false;
     private bool rotateGreenActive = false;
@@ -62,6 +63,15 @@ public class PlayerInteraction : MonoBehaviour
                 else { return true; }
             default:
                 return true;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Goal"))
+        {
+            goal.SetActive(true);
+            this.gameObject.SetActive(false);
         }
     }
 }
